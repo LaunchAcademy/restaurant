@@ -36,9 +36,21 @@ describe 'a user adds a new menu item' do
 
       click_on "Create Menu item"
 
-      expect(page).to have_content "Name can't be blank"
-      expect(page).to have_content "Description can't be blank"
-      expect(page).to have_content "Price in cents can't be blank"
+      within ".input.menu_item_name" do
+        expect(page).to have_content "can't be blank"
+      end
+
+      within ".input.menu_item_description" do
+        expect(page).to have_content "can't be blank"
+      end
+
+      within ".input.menu_item_price_in_cents" do
+        expect(page).to have_content "can't be blank"
+      end
+
+      within ".input.menu_item_category" do
+        expect(page).to have_content "can't be blank"
+      end
     end
   end
 end
